@@ -36,8 +36,21 @@ A **star schema** is required for optimized queries on song play queries.<br>
 * **staging_songs** - info about songs and artists<br>
 * **staging_events** - actions done by users (which song are listening, etc.. )
 ## Project Template
-The project template includes 3 files:<br>
-`create_table.py` is where you'll create your fact and dimension tables for the star schema in Redshift.<br>
-`etl.py` is where you'll load data from S3 into staging tables on Redshift and then process that data into your analytics tables on Redshift.<br>
-`sql_queries.py` is where you'll define you SQL statements, which will be imported into the two other files above.<br>
-
+The project template includes 4 files:<br>
+`create_table.py`- create/drop the fact and dimension tables for the star schema in Redshift.<br>
+`etl.py`- load data from S3 into staging tables on Redshift and then process that data into your analytics tables on Redshift.<br>
+`sql_queries.py`- define you SQL statements, which will be imported into the two other files above.<br>
+`dhw.cfg` - Configuration file used that contains info about Redshift, IAM and S3
+## ETL Pipeline
+* Create a new `IAM user` in your AWS account<br>
+* Use Access Key and Secret Key to create clients for `EC2`, `S3`, `IAM`, and `Redshift`<br>
+* Create an `IAM Role` that makes Redshift able to access `S3 bucket`<br>
+* Launch a `RedShift` cluster and create an `IAM role` that has read access to `S3`<br>
+* Add redshift database and `IAM role` info to `dwh.cfg`<br>
+* Load data from S3 to staging tables on Redshift-`etl.py`<br> 
+* Load data from staging tables to analytics tables on Redshift-`etl.py`<br> 
+* Delete your redshift cluster
+## How to Run
+The data source are provided at `S3 Bucket` and you only need to run the project for `AWS Redshift Cluster`
+* Create tables- create_tables.py
+* Execute ETL process- etl.py

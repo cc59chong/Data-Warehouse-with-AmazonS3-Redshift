@@ -1,4 +1,4 @@
-# Project: Data-Warehouse-with-AWS
+# Project: Data-Warehouse-with-R3-and-Redshift
 ## Introduction
 Sparkify has grown their user base and song database and want to move their processes and data onto the cloud. Their data resides in S3, in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app.<br>
 Build an ETL pipeline that extracts their data from S3, stages them in Redshift, and transforms data into a set of dimensional tables for their analytics team to continue finding insights in what songs their users are listening to. Test your database and ETL pipeline by running queries given to you by the analytics team from Sparkify and compare your results with their expected results.
@@ -20,10 +20,10 @@ For example,
 ## Schema for Song Play Analysis
 A **star schema** is required for optimized queries on song play queries.<br>
 ![image](https://github.com/MengyaCao/Data-Warehouse-with-AWS/blob/main/ER_Diagram_DW.JPG)<br>
- **Fact Table**<br>
+>**Fact Table**<br>
 * **songplays** - records in event data associated with song plays i.e. records with page `NextSong`<br>
 ```songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent```<br>
-**Dimension Tables**<br>
+>**Dimension Tables**<br>
 * **users** - users in the app<br>
 ```user_id, first_name, last_name, gender, level```<br>
 * **songs** - songs in music database<br>
@@ -32,6 +32,12 @@ A **star schema** is required for optimized queries on song play queries.<br>
 ```artist_id, name, location, lattitude, longitude```<br>
 * **time** - timestamps of records in songplays broken down into specific units<br>
 ```start_time, hour, day, week, month, year, weekday```<br>
-
-
+> **Staging Table** - which copy the JSON file inside the S3 buckets.<br>
+* **staging_songs** - info about songs and artists<br>
+* **staging_events** - actions done by users (which song are listening, etc.. )
+## Project Template
+The project template includes 3 files:<br>
+`create_table.py` is where you'll create your fact and dimension tables for the star schema in Redshift.<br>
+`etl.py` is where you'll load data from S3 into staging tables on Redshift and then process that data into your analytics tables on Redshift.<br>
+`sql_queries.py` is where you'll define you SQL statements, which will be imported into the two other files above.<br>
 

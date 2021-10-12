@@ -52,5 +52,5 @@ The project template includes 4 files:<br>
 * Delete your redshift cluster
 ## How to Run
 The data source are provided at `S3 Bucket` and you only need to run the project for `AWS Redshift Cluster`
-* Create tables- create_tables.py
-* Execute ETL process- etl.py
+* Create tables- `create_tables.py`
+* Execute ETL process- `etl.py`

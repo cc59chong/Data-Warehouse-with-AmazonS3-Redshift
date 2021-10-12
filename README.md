@@ -21,10 +21,10 @@ For example,
 A **star schema** is required for optimized queries on song play queries.<br>
 ![image](https://github.com/MengyaCao/Data-Warehouse-with-AWS/blob/main/ER_Diagram_DW.JPG)<br>
 **Fact Table**<br>
->>**songplays** - records in event data associated with song plays i.e. records with page `NextSong`<br>
+>**songplays** - records in event data associated with song plays i.e. records with page `NextSong`<br>
 ```songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent```<br>
 **Dimension Tables**<br>
-**users** - users in the app<br>
+>**users** - users in the app<br>
 ```user_id, first_name, last_name, gender, level```<br>
 **songs** - songs in music database<br>
 ```song_id, title, artist_id, year, duration```<br>

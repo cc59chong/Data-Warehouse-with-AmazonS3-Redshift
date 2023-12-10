@@ -49,7 +49,7 @@ The project template includes 4 files:<br>
 * Add redshift database and `IAM role` info to `dwh.cfg`<br>
 * Load data from S3 to staging tables on Redshift-`etl.py`<br> 
 * Load data from staging tables to analytics tables on Redshift-`etl.py`<br> 
-* Delete your redshift cluster
+* Delete your Redshift cluster
 ## How to Run
 The data source are provided at `S3 Bucket` and you only need to run the project for `AWS Redshift Cluster`
 * Create tables- `create_tables.py`
